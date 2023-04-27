@@ -1,7 +1,15 @@
 
 // Som Pom 
-function tocaSom(idElementoAudio) {
-    document.querySelector(idElementoAudio).play();
+function tocaSom(seledorAudio) {
+    const elemento = document.querySelector(seledorAudio);
+    
+    if (elemento && elemento.localName === 'audio') {
+            elemento.play();
+    }
+    else{
+        console.log('Elemento não encontrado')
+    }
+
 }
 
 
@@ -20,7 +28,7 @@ for (let contador = 0; contador < ListaDeteclas.length; contador++) {
     }
 
     tecla.onkeydown = function (evento) {
-        console.log(evento.code)
+
         if (evento.code === 'Space' || evento.code === 'Enter') {
             tecla.classList.add('ativa');
         }
